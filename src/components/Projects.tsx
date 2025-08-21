@@ -42,7 +42,7 @@ const Projects = () => {
       image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React', 'Django', 'MongoDB', 'AWS S3'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/zain1235ytuZ/jarvis',
       category: 'Education',
       featured: false,
       status: 'Completed'
