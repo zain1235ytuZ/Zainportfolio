@@ -10,6 +10,27 @@ const Hero = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    try {
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      // Point to the PDF in the public folder
+      link.href = '/Zain_Ali.pdf';
+      // Set the download attribute with filename
+      link.download = 'Zain_Ali_CV.pdf';
+      // Append to body (required for Firefox)
+      document.body.appendChild(link);
+      // Trigger the download
+      link.click();
+      // Clean up
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+      // Fallback to opening in a new tab if download fails
+      window.open('/Zain_Ali.pdf', '_blank');
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,46 +122,6 @@ const Hero = () => {
           animate="visible"
           className="max-w-5xl mx-auto text-center"
         >
-          {/* Profile Image with Enhanced Design */}
-          <motion.div
-            variants={itemVariants}
-            className="relative w-56 h-56 mx-auto mb-12"
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-4 rounded-full"
-            >
-              <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 blur-md opacity-60" />
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white"
-            >
-              <img
-                src={profileImage}
-                alt="Zain Ali - Full Stack Developer"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src = "https://via.placeholder.com/500x500?text=Profile+Image";
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent" />
-            </motion.div>
-
-            {/* Floating status indicator */}
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
-            >
-              <div className="w-3 h-3 bg-white rounded-full" />
-            </motion.div>
-          </motion.div>
 
           {/* Enhanced Typography */}
           <motion.div variants={itemVariants} className="mb-8">
@@ -182,6 +163,47 @@ const Hero = () => {
             </motion.span>
           </motion.h1>
 
+          {/* Moved Profile Image under the name */}
+          <motion.div
+            variants={itemVariants}
+            className="relative w-48 h-48 mx-auto mb-8 mt-8"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-3 rounded-full"
+            >
+              <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 blur-md opacity-60" />
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white"
+            >
+              <img
+                src={profileImage}
+                alt="Zain Ali - Full Stack Developer"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://via.placeholder.com/500x500?text=Profile+Image";
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent" />
+            </motion.div>
+
+            {/* Floating status indicator */}
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-3 border-white shadow-lg flex items-center justify-center"
+            >
+              <div className="w-2 h-2 bg-white rounded-full" />
+            </motion.div>
+          </motion.div>
+
           <motion.p
             variants={itemVariants}
             className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -218,9 +240,8 @@ const Hero = () => {
               />
             </motion.button>
 
-            <motion.a
-              href="/src/Cv/Zain_Ali.pdf"
-              download="Zain_Ali_CV.pdf"
+            <motion.button
+              onClick={handleDownloadCV}
               className="btn-secondary group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -229,7 +250,7 @@ const Hero = () => {
                 <Download size={20} />
                 <span>Download CV</span>
               </span>
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           {/* Enhanced Social Links */}
