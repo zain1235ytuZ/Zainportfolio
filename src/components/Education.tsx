@@ -136,11 +136,11 @@ const Education = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 heading-modern">
                       Bachelor of Science in Computer Science
                     </h3>
-                    <p className="text-lg text-blue-600 font-semibold mb-2">University Name</p>
+                    <p className="text-lg text-blue-600 font-semibold mb-2">GCU</p>
                   </div>
                   <div className="flex items-center space-x-2 glass-card px-4 py-2 rounded-full">
                     <Calendar className="w-4 h-4 text-slate-600" />
-                    <span className="text-slate-700 font-medium">2022 - 2026</span>
+                    <span className="text-slate-700 font-medium">2023 - 2027</span>
                   </div>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-lg">
