@@ -15,9 +15,9 @@ const Hero = () => {
       // Create a temporary anchor element
       const link = document.createElement('a');
       // Point to the PDF in the public folder
-      link.href = '/Zain_Ali.pdf';
+      link.href = '/Zaincv.pdf';
       // Set the download attribute with filename
-      link.download = 'Zain_Ali_CV.pdf';
+      link.download = 'Zain_CV.pdf';
       // Append to body (required for Firefox)
       document.body.appendChild(link);
       // Trigger the download
@@ -27,7 +27,7 @@ const Hero = () => {
     } catch (error) {
       console.error('Error downloading CV:', error);
       // Fallback to opening in a new tab if download fails
-      window.open('/Zain_Ali.pdf', '_blank');
+      window.open('/Zaincv.pdf', '_blank');
     }
   };
 
