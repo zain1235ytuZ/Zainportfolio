@@ -4,14 +4,36 @@ import { motion } from 'framer-motion';
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React frontend and Django backend. Features include user authentication, product catalog, shopping cart, and payment integration.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React', 'Django', 'PostgreSQL', 'Stripe API'],
-      liveUrl: '#',
+      title: 'Maxicar',
+      description: 'Professional automotive platform featuring comprehensive car listings, advanced search functionality, and seamless user experience. Built with modern web technologies for optimal performance and user engagement.',
+      image: 'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+      liveUrl: 'https://wormser-maxicar.de',
       githubUrl: '#',
       category: 'Full Stack',
       featured: true,
+      status: 'Completed'
+    },
+    {
+      title: 'Spartenwear',
+      description: 'Modern e-commerce platform for premium sportswear and athletic gear. Features responsive design, product filtering, shopping cart functionality, and secure payment processing.',
+      image: 'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tech: ['React', 'Next.js', 'Stripe', 'Tailwind CSS'],
+      liveUrl: 'https://spartenwear.vercel.app/ ',
+      githubUrl: '#',
+      category: 'E-Commerce',
+      featured: true,
+      status: 'Completed'
+    },
+    {
+      title: 'Monetization Hub',
+      description: 'Comprehensive monetization platform for content creators and businesses. Features revenue tracking, analytics dashboard, payment processing, and multi-channel integration for optimized earnings.',
+      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tech: ['React', 'Node.js', 'Express', 'Chart.js'],
+      liveUrl: 'https://monitization-nu.vercel.app/',
+      githubUrl: '#',
+      category: 'Business',
+      featured: false,
       status: 'Completed'
     },
     {
@@ -77,6 +99,8 @@ const Projects = () => {
         return <Server className="w-4 h-4" />;
       case 'Mobile':
         return <Smartphone className="w-4 h-4" />;
+      case 'E-Commerce':
+        return <Briefcase className="w-4 h-4" />;
       default:
         return <Globe className="w-4 h-4" />;
     }
